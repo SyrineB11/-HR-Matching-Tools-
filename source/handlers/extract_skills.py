@@ -15,4 +15,4 @@ def get_skills(text):
         if "SKILL" in ent.label_  :
             subset.append(ent.label_.split('|')[1])
         myset.append(subset)
-    return subset
+    return set(subset)

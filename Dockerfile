@@ -20,8 +20,5 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # install dependencies
-
-
-
 # copy project
 COPY . .

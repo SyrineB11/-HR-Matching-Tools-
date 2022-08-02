@@ -15,7 +15,7 @@ def generate_N_grams(tokens_without_sw, ngram=1):
 def get_text(resume):
     # opening pdf file
     list_of_symbols = ['(', ')', '[', ']', '•', ',']
-    parsed_pdf = parser.from_file(resume)
+    parsed_pdf = parser.from_file(resume,"http://apache-tika:9998")
     # saving content of pdf
     # you can also bring text only, by parsed_pdf['text']
     # parsed_pdf['content'] returns string
@@ -29,11 +29,12 @@ def get_text(resume):
     # Replace all occurrences of character s with an empty string
     text_reduced_spaces = re.sub(pattern, ' ', text_reduced_lines)
     clean_text = remove_emoji(text_reduced_spaces)
-    tokens = clean_text.splitlines()
+    tokens = clean_text.split("\n")
+    print("my tokens",tokens)
     (email, phone, github, linkedin) = get_contact(txt, tokens)
-    tokens_without_sw = clean_the_text(text_reduced_spaces, txt)
+    """"    tokens_without_sw = clean_the_text(text_reduced_spaces, txt)
     list_of_grams = []
     for i in range(1, 3):
         list_of_grams.append(generate_N_grams(tokens_without_sw, i))
-    grams_here = [j for i in list_of_grams for j in i]
+    grams_here = [j for i in list_of_grams for j in i]"""
     return (email, phone, linkedin, github, get_skills(clean_text.replace("-", " ")))
