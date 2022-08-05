@@ -4,7 +4,7 @@ import json
 from source.handlers.clean_text import clean_the_text, remove_emoji
 from source.handlers.extract_skills import get_skills
 from source.handlers.extract_contact import get_contact
-
+from source.handlers.extract_major_degrees import get_degrees, get_majors
 
 def generate_N_grams(tokens_without_sw, ngram=1):
     temp = zip(*[tokens_without_sw[i:] for i in range(0, ngram)])
@@ -30,11 +30,11 @@ def get_text(resume):
     text_reduced_spaces = re.sub(pattern, ' ', text_reduced_lines)
     clean_text = remove_emoji(text_reduced_spaces)
     tokens = clean_text.split("\n")
-    print("my tokens",tokens)
     (email, phone, github, linkedin) = get_contact(txt, tokens)
     """"    tokens_without_sw = clean_the_text(text_reduced_spaces, txt)
     list_of_grams = []
     for i in range(1, 3):
         list_of_grams.append(generate_N_grams(tokens_without_sw, i))
     grams_here = [j for i in list_of_grams for j in i]"""
-    return (email, phone, linkedin, github, get_skills(clean_text.replace("-", " ")))
+    
+    return (email, phone, linkedin, github, get_skills(clean_text.replace("-", " ")),get_degrees(clean_text.replace("-", " ")),get_majors(clean_text.replace("-", " ")))

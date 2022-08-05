@@ -8,13 +8,17 @@ services:
       - .:/app
     ports:
       - 8008:8000
+    environment: 
+      - MONGO_USERNAME=matching_project
+      - MONGO_PASSWORD=resumes&jobdescriptions101
+      - MONGO_SERVER=mongodb
   mongodb:
     image: mongo
     ports:
       - 27010:27017
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=mayssa
-      - MONGO_INITDB_ROOT_PASSWORD=mayssa
+      - MONGO_INITDB_ROOT_USERNAME=matching_project
+      - MONGO_INITDB_ROOT_PASSWORD=resumes&jobdescriptions101
 #    volumes:
 #      - mongo-data:/data/db
   mongo-express:
@@ -23,12 +27,12 @@ services:
     ports:
       - 8080:8081
     environment:
-      - ME_CONFIG_MONGODB_ADMINUSERNAME=mayssa
-      - ME_CONFIG_MONGODB_ADMINPASSWORD=mayssa
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=matching_project
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=resumes&jobdescriptions101
       - ME_CONFIG_MONGODB_SERVER=mongodb
   apache-tika:
     image: apache/tika
     ports:
       - 9998:9998
 volumes:
-  postgres_data:
+  mongo_data:

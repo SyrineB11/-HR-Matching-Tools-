@@ -1,0 +1,12 @@
+{"label": "MAJOR", "pattern": [{"LOWER": "software"}, {"LOWER": "engineering"}]}
+{"label": "MAJOR", "pattern": [{"LOWER": "software"}, {"LOWER": "development"}]}
+{"label": "MAJOR", "pattern": [{"LOWER": "computer"}, {"LOWER": "sciences"}]}
+{"label": "MAJOR", "pattern": [{"LOWER": "data"}, {"LOWER": "sciences"}]}
+{"label": "MAJOR", "pattern": [{"LOWER": "information"}, {"LOWER": "technology"}, {"LOWER": "and"}, {"LOWER": "information"}, {"LOWER": "systems"}]}
+{"label": "MAJOR", "pattern": [{"LOWER": "information"}, {"LOWER": "science"}]}
+{"label": "MAJOR", "pattern": [{"LOWER": "computer"}, {"LOWER": "engineering"}]}
+{"label": "MAJOR", "pattern": [{"LOWER": "cybersecurity"}]}
+{"label": "MAJOR", "pattern": [{"LOWER": "data"}, {"LOWER": "analysis"}]}
+{"label": "MAJOR", "pattern": [{"LOWER": "artificial"}, {"LOWER": "intelligence"}]}
+{"label": "MAJOR", "pattern": [{"LOWER": "web"}, {"LOWER": "development"}]}
+{"label": "MAJOR", "pattern": [{"LOWER": "network"}, {"LOWER": "security"}]}
