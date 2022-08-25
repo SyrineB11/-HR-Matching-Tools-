@@ -2,9 +2,11 @@ import nltk
 from nltk.corpus import stopwords
 import spacy
 from spacy.matcher import Matcher
+import unidecode
 import re
 
 nltk.download('stopwords')
+
 
 def remove_emoji(string):
     emoji_pattern = re.compile("["
@@ -16,6 +18,7 @@ def remove_emoji(string):
                                u"\U000024C2-\U0001F251"
                                "]+", flags=re.UNICODE)
     return emoji_pattern.sub(r'', string)
+
 
 def clean_the_text(text_reduced_spaces, txt):
     text_reduced_lines = re.sub(r'(\n\s*)+\n+', '\n', txt)
@@ -31,5 +34,18 @@ def clean_the_text(text_reduced_spaces, txt):
         not word in stopwords.words() and word != '•')]
     return tokens_without_sw
 
+def clean(text):
+    result = re.sub('[,-.()/]\n',' ',text)
+    print("____________result_hereeee___________",result,"\n____________")
+    return result
 
 
+def concat_words(element):
+    return element.replace(" ", "")
+
+
+def clean_words(words):
+    my_list = words.split("  ")
+    result = map(concat_words, my_list)
+    listToStr = ' '.join(map(str, result))
+    return unidecode.unidecode(listToStr)

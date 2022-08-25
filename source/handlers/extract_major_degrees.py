@@ -16,10 +16,7 @@ nlp_majors.pipe_names
 
 
 def get_degrees(text):
-    translator = Translator()
-    text = translator.translate(text)
-    doc = nlp_degrees(text.text)
-    print(doc)
+    doc = nlp_degrees(text)
     myset = []
     subset = []
     for ent in doc.ents:
@@ -28,12 +25,10 @@ def get_degrees(text):
         myset.append(subset)
     return set(subset)
 
-
 def get_majors(text):
     translator = Translator()
     text = translator.translate(text)
     doc = nlp_majors(text.text)
-    print(doc)
     myset = []
     subset = []
     for ent in doc.ents:

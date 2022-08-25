@@ -24,7 +24,17 @@ class ContactModel(BaseModel):
     linkedin: str = Field(...)
     github: str = Field(...)
     phone: str = Field(...)
+    
+class ExperienceModel(BaseModel):
+    start_date: str = Field(...)
+    end_date: str = Field(...)
+    skills: list = Field(...)
 
+class EducationModel(BaseModel):
+    start_date: str = Field(...)
+    end_date: str = Field(...)
+    degrees: list = Field(...)
+    
     class Config:
         allow_population_by_field_name = True
         arbitrary_types_allowed = True
@@ -37,6 +47,8 @@ class StudentModel(BaseModel):
     skills: list = Field(...)
     degrees: list = Field(...)
     majors: list = Field(...)
+    experiences:list=Field(...)
+    education:list=Field(...)
 
     class Config:
         allow_population_by_field_name = True

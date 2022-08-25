@@ -4,8 +4,7 @@ patterns_dict = {
     "email": "[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+",
     "linkedin": r"http(s)?:\/\/([w]{3}\.)?linkedin\.com\/in\/[\w+-]{5,20}\/?|linkedin\/[\w+-]{5,20}|linkedin\.com\/in\/[\w+-]{5,20}\/?",
     "github": r"(https:\/\/)?github\.com/(\w+)",
-    "phone": r"(\(?)(\+?)(\d+)(\)?)(\s*)(\d+)(\s*)(\d+)(\s*)(\d+)(\s*)(\d+)"
-    
+    "phone": r"(\(?)(\+?)(\d{3})(\)?)(\s*)(\d{2})(\s*)(\d{3})(\s*)(\d{3})"
 }
 
 
@@ -24,7 +23,7 @@ def get_contact(txt, tokens):
             github = t[match.start():match.end()]
     phone = None
     for t in tokens:
-        match = re.match(patterns_dict["phone"]
+        match = re.search(patterns_dict["phone"]
             , t)
         if (match):
             phone = t[match.start():match.end()]

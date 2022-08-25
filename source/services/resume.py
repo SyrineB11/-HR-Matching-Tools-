@@ -16,11 +16,11 @@ class CRUDResume():
         with open(file_location, "wb+") as file_object:
             file_object.write(resume.file.read())
         (email, phone, linkedin, github, skills,
-         degrees, majors) = get_text(file_location)
+         degrees, majors,education,experience) = get_text(file_location)
         contact = ContactModel(linkedin=linkedin if linkedin else '', phone=phone if phone else '',
                                email=email if email else '', github=github if github else '')
         resume = StudentModel(email=email, contact=contact,
-                              skills=skills, degrees=degrees, majors=majors)
+                              skills=skills, degrees=degrees, majors=majors,education=education,experiences=experience)
         resume = jsonable_encoder(resume)
         new_resume = await db["resumes"].insert_one(resume)
         created_student = await db["resumes"].find_one({"_id": new_resume.inserted_id})
