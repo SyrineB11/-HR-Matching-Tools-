@@ -11,7 +11,6 @@ class CRUDResume():
     async def add_resume(self, resume: UploadFile):
         uploaded_file_url = f"https://{S3_BUCKET_NAME}.s3.amazonaws.com/{resume.filename}"
         extention = resume.filename.split(".")[-1]
-        print(extention)
         file_location = "/app/source/resumes/103" + '.'+extention
         with open(file_location, "wb+") as file_object:
             file_object.write(resume.file.read())

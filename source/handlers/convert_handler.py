@@ -6,6 +6,7 @@ from source.handlers.clean_text import clean_the_text, remove_emoji
 from source.handlers.extract_skills import get_skills
 from source.handlers.extract_contact import get_contact
 from source.handlers.extract_major_degrees import get_degrees, get_majors
+from googletrans import Translator
 
 
 """def generate_N_grams(tokens_without_sw, ngram=1):
@@ -35,5 +36,7 @@ def get_text(resume):
         list_of_grams.append(generate_N_grams(tokens_without_sw, i))
     grams_here = [j for i in list_of_grams for j in i]"""
     #old_code_hereeeeeeee
+    translator = Translator()
+    
     education_experience=get_education_experience(resume)
-    return (email, phone, linkedin, github, get_skills(clean_text.replace("-", " ")), get_degrees(clean_text.replace("-", " ")), get_majors(clean_text.replace("-", " ")),education_experience[0],education_experience[1])
+    return (email, phone, linkedin, github, get_skills(clean_text.replace("-", " ")), get_degrees(translator.translate(clean_text).text), get_majors(translator.translate(clean_text).text),education_experience[0],education_experience[1])

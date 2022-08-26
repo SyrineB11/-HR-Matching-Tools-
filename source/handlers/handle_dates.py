@@ -103,5 +103,4 @@ def search_dates(block_string):
 
     find_all_result = re.findall(months+" [0-9]{4} (?:-|–) "+months+" [0-9]{4}|"+months+" [0-9]{4} (?:-|–) present|"+months+" [0-9]{4} (?:-|–) [0-9]{4}|"+months+" (?:-|–) " +
                                  months+" (?:[0-9]{4}|[0-9]{2})|"+months+" [0-9]{4}|"+months+" (?:[5-9][0-9]|[0-7][0-9])|[0-9]{4} (?:-|–) (?:present|[0-9]{4})|[0-9]{4}", result)
-    print(text.text.lower())
     return (find_all_result, re.split(date_pattern, text.text.lower()))

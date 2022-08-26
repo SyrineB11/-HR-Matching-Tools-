@@ -26,9 +26,7 @@ def get_degrees(text):
     return set(subset)
 
 def get_majors(text):
-    translator = Translator()
-    text = translator.translate(text)
-    doc = nlp_majors(text.text)
+    doc = nlp_majors(text)
     myset = []
     subset = []
     for ent in doc.ents:
