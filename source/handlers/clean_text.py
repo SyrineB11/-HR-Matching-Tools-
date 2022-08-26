@@ -36,7 +36,6 @@ def clean_the_text(text_reduced_spaces, txt):
 
 def clean(text):
     result = re.sub('[,-.()/]\n',' ',text)
-    print("____________result_hereeee___________",result,"\n____________")
     return result
 
 

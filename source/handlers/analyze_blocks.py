@@ -7,7 +7,7 @@ from source.handlers.handle_dates import search_dates, detect_dates
 import fitz
 from source.models.resume import ExperienceModel, EducationModel
 
-#This is a dictionary to detect the different blocks of a resume written in different forms
+# This is a dictionary to detect the different blocks of a resume written in different forms
 blocks_dict = {
     "experience": "^P(ROFESSIONAL|rofessional) E(xperience|XPERIENCE)(s|S)?(\s)*$|^E(xperience|XPERIENCE)(S|s)? (P|p)(ROFESSIONNELLE|rofessionnelles)(s|S)?(\s)*$|^E(xperience|XPERIENCE)(s|S)?(\s)*$|^R(ealisation|EALISATION)(s|S)?(\s)*$|^W(ORK|ork) (E|e)(xperience|XPERIENCE)(s|S)?(\s)*$|^W(ork|ORK) (H|h)(istory|ISTORY)(\s)*$|I(NTERNERSHIP|nternership)(s|S)?(\s)*",
     "education": "^E(ducation|DUCATION)(\s)*$|^F(ORMATION|ormation)(\s)*$",
@@ -42,7 +42,6 @@ def analyze_block(page_detected, block_limiter, selected_block, right_block, ver
                     block_string = "\n".join([block_string, word['text']])
 
     (extracted_dates, blocks) = search_dates(block_string)
-    print("my blockssss=========",blocks)
     for date in extracted_dates:
         start_date, end_date = detect_dates(date)
         array_block.append({"start_date": start_date, "end_date": end_date})
@@ -69,7 +68,7 @@ def find_block(block_to_detect, list_of_blocks):
     for index, block in enumerate(list_of_blocks):
         if block_to_detect in block:
             return index, block
-    return None,None
+    return None, None
 
 
 def analyze_education_experience(index, split_page_blocks, fitzdoc, block_to_analyze):
@@ -99,12 +98,12 @@ def analyze_education_experience(index, split_page_blocks, fitzdoc, block_to_ana
             block_to_analyze, right_blocks_sorted)
         if (detected_block != None):
             return analyze_block(fitzdoc[right_blocks_sorted[index][block_to_analyze]["page"]],
-                          left_block_x1, detected_block, True, False, block_to_analyze)
+                                 left_block_x1, detected_block, True, False, block_to_analyze)
         else:
             index, detected_block = find_block(
                 block_to_analyze, left_blocks_sorted)
             return analyze_block(fitzdoc[left_blocks_sorted[index][block_to_analyze]["page"]],
-                          right_block_x0, detected_block, False, False, block_to_analyze)
+                                 right_block_x0, detected_block, False, False, block_to_analyze)
     else:
         vertical_blocks_sorted = []
         for page_block in split_page_blocks:
@@ -113,7 +112,7 @@ def analyze_education_experience(index, split_page_blocks, fitzdoc, block_to_ana
         index, detected_block = (find_block(
             block_to_analyze, vertical_blocks_sorted))
         return analyze_block(fitzdoc[vertical_blocks_sorted[index][block_to_analyze]
-                      ["page"]], None, detected_block, False, True, block_to_analyze)
+                                     ["page"]], None, detected_block, False, True, block_to_analyze)
 
 
 def get_education_experience(file):
@@ -139,10 +138,11 @@ def get_education_experience(file):
             split_page_blocks[index].update(
                 {keys_list[resume_keys]: values_list[resume_keys]})
     split_list = dict(sorted(split_page_blocks[0].items(
-    ), key=lambda x: x[1]['bbox'][0]), reverse=False)
+    ), key=lambda x: x[1]['bbox'][0], reverse=False))
     index = seperate_blocks(split_list, fitzdoc[0].rect.width)
     pattern_to_search = ["education", "experience"]
     result_blocks = []
     for pattern in pattern_to_search:
-        result_blocks.append(analyze_education_experience(index, split_page_blocks, fitzdoc, pattern))
+        result_blocks.append(analyze_education_experience(
+            index, split_page_blocks, fitzdoc, pattern))
     return result_blocks
