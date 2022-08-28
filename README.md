@@ -13,7 +13,7 @@ As a solution in this project, we calculated the similarity between the resume a
 
 
 ## I - Data Preparation
-I-1 ResumesDataset  ..
+I-1 ResumesDataset  **resume-parser**
 
 II-2 JobsDataset 
 
