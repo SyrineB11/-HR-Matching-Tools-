@@ -1,11 +1,10 @@
 import nltk
-from nltk.corpus import stopwords
 import spacy
 from spacy.matcher import Matcher
 import unidecode
 import re
 
-nltk.download('stopwords')
+
 
 
 def remove_emoji(string):

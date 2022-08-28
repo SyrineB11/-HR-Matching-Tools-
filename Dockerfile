@@ -13,7 +13,8 @@ RUN mkdir -p /usr/share/man/man1
 RUN apt update && apt install alembic -y
 
 RUN apt-get update &&  apt-get install -y openjdk-11-jre-headless && apt-get clean;
-RUN python3 -m spacy download en_core_web_sm;python3 -m spacy download en_core_web_lg
+RUN python3 -m spacy download en_core_web_sm
+RUN python3 -m spacy download en_core_web_lg
 
 # set env variables
 ENV PYTHONDONTWRITEBYTECODE 1
