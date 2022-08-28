@@ -202,7 +202,7 @@ high_plus_resume_2=["business","mongodb","tableau","ai","computer science","data
 ```
 ![yepp](https://user-images.githubusercontent.com/78451998/186676533-976b8bee-eedd-4a01-95e4-5107d6d24db1.png)
 
-### Then we chose the SBERT model :   all-mpnet-base-v2 
+
 
 GOT TOP 4 BEST RESUMES FOR EACH JOB BASED ON THEIR CALCULATED SIMILARITIES 
 for each feature we attributed weights to calculate the similarity between all features giving (w1:skills,w2:majors,w3:degrees)
@@ -212,3 +212,5 @@ for each feature we attributed weights to calculate the similarity between all f
 ## Evaluating the models results to our annotated datasets results using precision at k 
 
 ![302016060_788058352239860_3468076867856183101_n](https://user-images.githubusercontent.com/78451998/187072481-0ff6220b-0e13-469c-9303-b897fb479fd6.png)
+
+### Then we chose the SBERT model :   paraphrase-MiniLM-L6-v2
