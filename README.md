@@ -1,4 +1,4 @@
-# resume-parser
+
 # HR-Matching-Tools
 
 # Problem Overview
@@ -13,7 +13,7 @@ As a solution in this project, we calculated the similarity between the resume a
 
 
 ## I - Data Preparation
-I-1 ResumesDataset  **resume-parser**
+I-1 ResumesDataset  **resume-parser** by MayssaJaz
 
 II-2 JobsDataset 
 
@@ -208,3 +208,7 @@ GOT TOP 4 BEST RESUMES FOR EACH JOB BASED ON THEIR CALCULATED SIMILARITIES
 for each feature we attributed weights to calculate the similarity between all features giving (w1:skills,w2:majors,w3:degrees)
 
 ![TOP4](https://user-images.githubusercontent.com/78451998/186678778-a780ca4d-7785-4b77-8cc2-7f97f5ee938a.png)
+
+## Evaluating the models results to our annotated datasets results using precision at k 
+
+![302016060_788058352239860_3468076867856183101_n](https://user-images.githubusercontent.com/78451998/187072481-0ff6220b-0e13-469c-9303-b897fb479fd6.png)
